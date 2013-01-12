@@ -2,10 +2,10 @@ require "logger"
 require "json"
 
 class CommonEventFormatter < Logger::Formatter
-  VERSION = "0.1.0"
+  VERSION = "0.1.1"
 
   def call(severity, time, progname, msg)
-    create_event({:level => severity, :time => time, :app => pwd, :pname => (progname || $0), :msg => msg2str(msg)})
+    create_event({:level => severity, :time => time, :host => hostname, :app => pwd, :pname => (progname || $0), :msg => msg2str(msg)})
   end
 
   def create_event(hash)
@@ -19,5 +19,9 @@ class CommonEventFormatter < Logger::Formatter
 
   def process_hash
     {:pid => Process.pid, :ppid => Process.ppid, :uid => Process.uid, :gid => Process.gid}
+  end
+
+  def hostname
+    ENV["HOSTNAME"]
   end
 end
