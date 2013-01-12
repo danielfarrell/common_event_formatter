@@ -1,0 +1,6 @@
+/.bundle
+/.ruby-version
+/.rspec
+/*.gem
+/Gemfile.lock
+.DS_Store
