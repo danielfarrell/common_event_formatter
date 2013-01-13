@@ -2,14 +2,14 @@ require "logger"
 require "json"
 
 class CommonEventFormatter < Logger::Formatter
-  VERSION = "0.1.3"
+  VERSION = "0.1.4"
 
   def call(severity, time, progname, msg)
     create_event({:level => severity, :time => time, :host => hostname, :app => pwd, :pname => (progname || $0), :msg => msg2str(msg)})
   end
 
   def create_event(hash)
-    hash.merge(process_hash).to_json + "\n"
+    hash.merge(process_hash).to_json + "\r\n"
   end
 
   private
