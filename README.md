@@ -4,6 +4,10 @@ Both [rsyslog](http://www.rsyslog.com/) and [syslog-ng](http://www.balabit.com/n
 
 The envisioned use is to output your logs in CEE format to STDOUT and have your running environment pipe them to a logger command.
 
+## What is CEE/Lumberjack?
+
+[CEE](http://cee.mitre.org/) is short for Common Event Expression. It is a structured format for logs. [Lumberjack](https://fedorahosted.org/lumberjack/) is a project to implement and standardize around CEE.
+
 ## Rails Example Config
 
 Gemfile
